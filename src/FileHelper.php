@@ -7,6 +7,22 @@ namespace Raketsky\Helper;
 class FileHelper
 {
     /**
+     * @param string $url
+     *
+     * @return bool
+     */
+    public static function isUrlExists($url)
+    {
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_NOBODY, true);
+        curl_exec($ch);
+        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        return $code == 200;
+    }
+
+    /**
      * Checks directory, and if dir exists, than returns true. Or tries to create it.
      *
      * @param string $dir    Path to a directory
@@ -15,7 +31,7 @@ class FileHelper
      *
      * @return bool
      */
-    public static function dirExists($dir, $create = false, $mode = 0777)
+    public static function isDirExists($dir, $create = false, $mode = 0777)
     {
         if (is_dir($dir)) {
             return true;
