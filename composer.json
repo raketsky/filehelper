@@ -1,0 +1,12 @@
+{
+	"name": "raketsky/filehelper",
+	"type": "library",
+	"license": "BSD",
+	"autoload": {
+		"psr-4": {
+			"Raketsky\\Helper\\": "src"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
