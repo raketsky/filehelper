@@ -37,7 +37,7 @@ class FileHelper
             return true;
         }
         if ($create) {
-            is_dir(dirname($dir)) || self::dirExists(dirname($dir), $mode);
+            is_dir(dirname($dir)) || static::isDirExists(dirname($dir), $mode);
 
             return is_dir($dir) || @mkdir($dir, $mode); # @mkdir($dir, 0777)
         } else {
